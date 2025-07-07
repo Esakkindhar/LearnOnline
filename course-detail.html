@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Detail | LearnOnline</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f5faff 0%, #f6f0fa 100%);
+    }
+    .course-img {
+      width: 100%;
+      max-height: 240px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 25px;
+      border: 3px solid #e7f3ff;
+      box-shadow: 0 4px 18px rgba(13,110,253,0.10);
+    }
+    .meta-badge {
+      background: #0d6efd;
+      color: #fff;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      padding: 3px 14px;
+      margin-right: 10px;
+      letter-spacing: 1px;
+    }
+    .instructor-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .instructor-img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #0d6efd;
+      box-shadow: 0 2px 8px rgba(13,110,253,0.15);
+    }
+    .course-highlight {
+      background: #fff7e0;
+      color: #e67c00;
+      border-radius: 8px;
+      padding: 4px 12px;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .module-list .list-group-item {
+      border: none;
+      border-radius: 0;
+      background: #f3f7fc;
+      font-size: 1.06rem;
+      margin-bottom: 3px;
+    }
+    .card-side {
+      background: #f8faff;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 3px 14px rgba(13,110,253,0.10);
+    }
+    .feature-list li {
+      margin-bottom: 6px;
+    }
+    .review-star {
+      color: #ffc107;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .review-star.inactive {
+      color: #e4e5e9;
+    }
+    .review-list {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .enrolled-badge {
+      background: #e9f7ef;
+      color: #1abc9c;
+      font-size: 0.89rem;
+      padding: 3px 10px;
+      border-radius: 8px;
+      margin-left: 7px;
+    }
+    .side-title {
+      font-weight: 700;
+      color: #0d6efd;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fa fa-graduation-cap me-2"></i>LearnOnline</a>
+      <div>
+        <a class="btn btn-light" href="dashboard.html">My Dashboard</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <div class="row g-4">
+      <div class="col-md-8">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" class="course-img" alt="Python Course">
+        <h2 class="mb-2">
+          Python for Beginners 
+          <span class="meta-badge"><i class="fa fa-star"></i> Beginner</span>
+          <span class="enrolled-badge"><i class="fa fa-users"></i> 5,000+ enrolled</span>
+        </h2>
+        <div class="instructor-info mb-2">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" class="instructor-img" alt="Instructor">
+          <div>
+            <span class="fw-bold">Dr. Ananya Singh</span><br>
+            <span class="text-muted small"><i class="fa fa-clock"></i> 8h &nbsp; <i class="fa fa-calendar"></i> Updated July 2025</span>
+          </div>
+        </div>
+        <div class="course-highlight"><i class="fa fa-bolt"></i> New: Includes hands-on coding labs!</div>
+        <!-- Course Video Section -->
+        <div class="ratio ratio-16x9 mb-4 shadow-sm rounded-3">
+          <iframe src="https://www.youtube.com/embed/rfscVS0vtbw" title="Course Video" allowfullscreen></iframe>
+        </div>
+        <h4 class="mb-3 side-title">Course Modules</h4>
+        <ul class="list-group module-list mb-4">
+          <li class="list-group-item"><i class="fa fa-play-circle text-primary"></i> Introduction to Python</li>
+          <li class="list-group-item"><i class="fa fa-database text-primary"></i> Variables and Data Types</li>
+          <li class="list-group-item"><i class="fa fa-random text-primary"></i> Control Structures</li>
+          <li class="list-group-item"><i class="fa fa-code text-primary"></i> Functions</li>
+          <li class="list-group-item"><i class="fa fa-project-diagram text-primary"></i> Projects & Practice</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3 mb-4 card-side">
+          <div class="side-title">About this course</div>
+          <p>Learn Python from scratch with hands-on practice, instructor videos, and quizzes. Perfect for beginners wanting to build a strong programming foundation!</p>
+          <ul class="list-unstyled feature-list mb-3">
+            <li><i class="fa fa-certificate text-success"></i> Certificate on completion</li>
+            <li><i class="fa fa-file-alt text-info"></i> 10+ downloadable resources</li>
+            <li><i class="fa fa-question-circle text-warning"></i> Quiz & assignments</li>
+          </ul>
+          <a href="quiz.html" class="btn btn-success w-100 mb-1"><i class="fa fa-pen-to-square"></i> Take Quiz</a>
+        </div>
+        <!-- Review System -->
+        <div class="card p-3 mb-3 card-side">
+          <div class="side-title">Course Reviews</div>
+          <form id="reviewForm" class="mb-3">
+            <div class="mb-2">
+              <span id="reviewStars">
+                <i class="fa fa-star review-star inactive" data-value="1"></i>
+                <i class="fa fa-star review-star inactive" data-value="2"></i>
+                <i class="fa fa-star review-star inactive" data-value="3"></i>
+                <i class="fa fa-star review-star inactive" data-value="4"></i>
+                <i class="fa fa-star review-star inactive" data-value="5"></i>
+              </span>
+            </div>
+            <div class="mb-2">
+              <textarea class="form-control" id="reviewText" rows="2" placeholder="Share your experience..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Submit Review</button>
+          </form>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-primary text-light text-center py-3">
+    &copy; 2025 LearnOnline. All rights reserved.
+  </footer>
+  <script>
+    // Review System (identical to previous)
+    let reviewStars = document.querySelectorAll('#reviewStars .review-star');
+    let selectedRating = 0;
+    let reviews = JSON.parse(localStorage.getItem('coursePythonReviews') || '[]');
+
+    function renderReviews() {
+      const list = document.getElementById('reviewList');
+      if (reviews.length === 0) {
+        list.innerHTML = '<p class="text-muted">No reviews yet. Be the first!</p>';
+        return;
+      }
+      list.innerHTML = reviews.map(r => `
+        <div class="border-bottom pb-2 mb-2">
+          <span>
+            ${'<i class="fa fa-star review-star"></i>'.repeat(r.rating)}
+            ${'<i class="fa fa-star review-star inactive"></i>'.repeat(5 - r.rating)}
+          </span>
+          <p class="mb-1">${r.text}</p>
+          <div class="text-muted small"><i class="fa fa-user"></i> Learner, ${r.date}</div>
+        </div>
+      `).join('');
+    }
+
+    function setStarHover(rating) {
+      reviewStars.forEach((star, idx) => {
+        star.classList.toggle('inactive', idx >= rating);
+      });
+    }
+
+    function resetStars() {
+      setStarHover(selectedRating);
+    }
+
+    // Initial render
+    renderReviews();
+
+    // Review Event Listeners
+    reviewStars = document.querySelectorAll('#reviewStars .review-star');
+    reviewStars.forEach(star => {
+      star.addEventListener('mouseenter', e => setStarHover(Number(star.dataset.value)));
+      star.addEventListener('mouseleave', resetStars);
+      star.addEventListener('click', e => {
+        selectedRating = Number(star.dataset.value);
+        resetStars();
+      });
+    });
+
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const text = document.getElementById('reviewText').value.trim();
+      if (selectedRating === 0 || !text) return;
+      const review = {
+        rating: selectedRating,
+        text,
+        date: new Date().toLocaleDateString()
+      };
+      reviews.unshift(review);
+      localStorage.setItem('coursePythonReviews', JSON.stringify(reviews));
+      document.getElementById('reviewText').value = '';
+      selectedRating = 0;
+      resetStars();
+      renderReviews();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard | LearnOnline</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(120deg, #e0e7ff 0%, #f8f9fa 100%);
+    }
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #0d6efd;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(13,110,253,0.12);
+    }
+    .welcome-card {
+      background: linear-gradient(90deg, #e0e7ff 70%, #fff 100%);
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(13,110,253,0.09);
+      padding: 28px 30px;
+      margin-bottom: 36px;
+      align-items: center;
+    }
+    .welcome-card .fa-crown {
+      color: #ffbf00;
+      font-size: 2.4rem;
+      margin-right: 14px;
+      vertical-align: middle;
+    }
+    .dashboard-card {
+      box-shadow: 0 3px 14px rgba(13,110,253,0.09);
+      border: none;
+      border-radius: 15px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+    .dashboard-card:hover {
+      box-shadow: 0 8px 28px rgba(13,110,253,0.20);
+      transform: translateY(-3px) scale(1.02);
+    }
+    .course-badge {
+      font-size: 0.85rem;
+      background: #e7f3ff;
+      color: #0d6efd;
+      border-radius: 6px;
+      padding: 4px 10px;
+      margin-left: 8px;
+      font-weight: 500;
+    }
+    .course-badge.not-started {
+      background:#ffeeba;
+      color:#856404;
+    }
+    .course-badge.completed {
+      background: #eafaf1;
+      color: #2ecc71;
+    }
+    .progress-bar {
+      transition: width 1.2s cubic-bezier(.4,0,.2,1);
+      font-size: 0.95rem;
+    }
+    .dashboard-card .fa-book-open {
+      position: absolute;
+      right: -18px;
+      top: -18px;
+      font-size: 3.4rem;
+      color: #e0e7ff;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .dashboard-section-title {
+      font-weight: 700;
+      color: #0d6efd;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .dashboard-section-title .fa {
+      font-size: 1.3rem;
+    }
+    .card-footer {
+      background: transparent;
+      border-top: none;
+      padding-bottom: 12px;
+      text-align: right;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 575px) {
+      .welcome-card {
+        padding: 18px 8px;
+        text-align: center;
+      }
+      .dashboard-section-title {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="fa fa-graduation-cap me-2"></i>LearnOnline</a>
+      <div>
+        <a class="btn btn-light" href="courses.html"><i class="fa fa-th-list"></i> Browse Courses</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <div class="welcome-card d-flex flex-wrap">
+      <img class="avatar me-4 mb-2 mb-sm-0" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar">
+      <div>
+        <h3 class="mb-2 text-primary"><i class="fa fa-crown"></i> Welcome back, <span class="fw-bold">Learner!</span></h3>
+        <div class="text-muted fs-5">Continue your journey and unlock new skills. <span class="badge bg-warning text-dark ms-2"><i class="fa fa-fire"></i> Streak: 5 days</span></div>
+      </div>
+    </div>
+    <div class="dashboard-section-title mb-4"><i class="fa fa-layer-group"></i> My Courses</div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 dashboard-card">
+          <i class="fa fa-book-open"></i>
+          <div class="card-body">
+            <h5 class="card-title mb-1">Python for Beginners 
+              <span class="course-badge">In Progress</span>
+            </h5>
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" style="width:42px;height:42px;object-fit:cover;border-radius:8px;margin-right:10px;border:2px solid #e7f3ff;">
+              <span class="text-muted small"><i class="fa fa-clock"></i> 8h &nbsp; <i class="fa fa-user-graduate"></i> Dr. Ananya Singh</span>
+            </div>
+            <p class="card-text mb-2">Master basic Python syntax and concepts.</p>
+            <div class="mb-2">
+              <div class="progress" style="height:14px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 60%;">60%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="course-detail.html" class="btn btn-primary btn-sm"><i class="fa fa-arrow-right"></i> Go to Course</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 dashboard-card">
+          <i class="fa fa-book-open"></i>
+          <div class="card-body">
+            <h5 class="card-title mb-1">UI/UX Fundamentals 
+              <span class="course-badge not-started">Not Started</span>
+            </h5>
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" style="width:42px;height:42px;object-fit:cover;border-radius:8px;margin-right:10px;border:2px solid #e7f3ff;">
+              <span class="text-muted small"><i class="fa fa-clock"></i> 6h &nbsp; <i class="fa fa-user-graduate"></i> Sarah Williams</span>
+            </div>
+            <p class="card-text mb-2">Design intuitive and beautiful interfaces.</p>
+            <div class="mb-2">
+              <div class="progress" style="height:14px;">
+                <div class="progress-bar bg-warning" role="progressbar" style="width: 0%;">0%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="course-detail.html" class="btn btn-primary btn-sm"><i class="fa fa-arrow-right"></i> Go to Course</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 dashboard-card">
+          <i class="fa fa-book-open"></i>
+          <div class="card-body">
+            <h5 class="card-title mb-1">Machine Learning Basics 
+              <span class="course-badge completed"><i class="fa fa-check-circle"></i> Completed</span>
+            </h5>
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" style="width:42px;height:42px;object-fit:cover;border-radius:8px;margin-right:10px;border:2px solid #e7f3ff;">
+              <span class="text-muted small"><i class="fa fa-clock"></i> 12h &nbsp; <i class="fa fa-user-graduate"></i> Prof. Ravi Kumar</span>
+            </div>
+            <p class="card-text mb-2">Explore ML principles and hands-on exercises.</p>
+            <div class="mb-2">
+              <div class="progress" style="height:14px;">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 100%;">100%</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="course-detail.html" class="btn btn-outline-success btn-sm"><i class="fa fa-certificate"></i> View Certificate</a>
+          </div>
+        </div>
+      </div>
+      <!-- Add more user courses as needed -->
+    </div>
+  </div>
+  <footer class="bg-primary text-light text-center py-3 mt-4">
+    &copy; 2025 LearnOnline. All rights reserved.
+  </footer>
+</body>
+</html>
