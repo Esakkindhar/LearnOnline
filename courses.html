@@ -49,67 +49,144 @@
     <h2>Courses</h2>
     <div class="row mb-4">
       <div class="col-md-3">
-        <select class="form-select">
-          <option selected>All Categories</option>
-          <option>Programming</option>
-          <option>Data Science</option>
-          <option>Design</option>
+        <select class="form-select" id="categoryFilter">
+          <option value="All" selected>All Categories</option>
+          <option value="Programming">Programming</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Design">Design</option>
         </select>
       </div>
       <div class="col-md-3">
-        <select class="form-select">
-          <option selected>All Levels</option>
-          <option>Beginner</option>
-          <option>Intermediate</option>
-          <option>Advanced</option>
+        <select class="form-select" id="levelFilter">
+          <option value="All" selected>All Levels</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
         </select>
       </div>
       <div class="col-md-6">
-        <input type="text" class="form-control" placeholder="Search courses...">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search courses...">
       </div>
     </div>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card h-100 course-card">
-          <img class="course-image" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Python for Beginners">
-          <div class="card-body">
-            <h5 class="card-title">Python for Beginners</h5>
-            <div class="course-meta"><i class="fa-solid fa-layer-group"></i> Level: Beginner &nbsp; <i class="fa-solid fa-clock"></i> 8h</div>
-            <div class="course-instructor"><i class="fa-solid fa-user-graduate"></i> Dr. Ananya Singh</div>
-            <p class="card-text course-desc">Get started with Python from scratch! Learn fundamentals, syntax, and basic programming concepts with interactive examples and mini-projects.</p>
-            <a href="course-detail.html" class="btn btn-primary">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 course-card">
-          <img class="course-image" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Machine Learning Basics">
-          <div class="card-body">
-            <h5 class="card-title">Machine Learning Basics</h5>
-            <div class="course-meta"><i class="fa-solid fa-layer-group"></i> Level: Intermediate &nbsp; <i class="fa-solid fa-clock"></i> 12h</div>
-            <div class="course-instructor"><i class="fa-solid fa-user-graduate"></i> Prof. Ravi Kumar</div>
-            <p class="card-text course-desc">Discover the core principles of machine learning. Explore supervised and unsupervised learning, algorithms, and hands-on exercises using Python.</p>
-            <a href="course-detail.html" class="btn btn-primary">View Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 course-card">
-          <img class="course-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="UI/UX Fundamentals">
-          <div class="card-body">
-            <h5 class="card-title">UI/UX Fundamentals</h5>
-            <div class="course-meta"><i class="fa-solid fa-layer-group"></i> Level: Beginner &nbsp; <i class="fa-solid fa-clock"></i> 6h</div>
-            <div class="course-instructor"><i class="fa-solid fa-user-graduate"></i> Sarah Williams</div>
-            <p class="card-text course-desc">Master the basics of user interface and user experience design. Practice with Figma, design thinking, and create your own design portfolio pieces.</p>
-            <a href="course-detail.html" class="btn btn-primary">View Details</a>
-          </div>
-        </div>
-      </div>
-      <!-- More courses can be added here -->
+    <div class="row g-4" id="coursesContainer">
+      <!-- Courses will be rendered here by JS -->
     </div>
   </div>
   <footer class="bg-primary text-light text-center py-3">
     &copy; 2025 LearnOnline. All rights reserved.
   </footer>
+  <script>
+    // Sample courses data
+    const courses = [
+      {
+        title: "Python for Beginners",
+        category: "Programming",
+        level: "Beginner",
+        img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80",
+        instructor: "Dr. Ananya Singh",
+        duration: "8h",
+        desc: "Get started with Python from scratch! Learn fundamentals, syntax, and basic programming concepts with interactive examples and mini-projects.",
+        link: "course-detail.html"
+      },
+      {
+        title: "Machine Learning Basics",
+        category: "Data Science",
+        level: "Intermediate",
+        img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80",
+        instructor: "Prof. Ravi Kumar",
+        duration: "12h",
+        desc: "Discover the core principles of machine learning. Explore supervised and unsupervised learning, algorithms, and hands-on exercises using Python.",
+        link: "course-detail.html"
+      },
+      {
+        title: "UI/UX Fundamentals",
+        category: "Design",
+        level: "Beginner",
+        img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+        instructor: "Sarah Williams",
+        duration: "6h",
+        desc: "Master the basics of user interface and user experience design. Practice with Figma, design thinking, and create your own design portfolio pieces.",
+        link: "course-detail.html"
+      },
+      {
+        title: "Advanced JavaScript",
+        category: "Programming",
+        level: "Advanced",
+        img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
+        instructor: "Michael Chen",
+        duration: "10h",
+        desc: "Deep dive into JavaScript concepts, ES6+, async programming, and advanced patterns for modern web apps.",
+        link: "course-detail.html"
+      },
+      {
+        title: "Data Visualization with Python",
+        category: "Data Science",
+        level: "Intermediate",
+        img: "https://images.unsplash.com/photo-1465101178521-c1a96e8b8aee?auto=format&fit=crop&w=400&q=80",
+        instructor: "Priya Patel",
+        duration: "7h",
+        desc: "Learn to visualize data using Python libraries like Matplotlib and Seaborn. Gain insights through hands-on projects.",
+        link: "course-detail.html"
+      },
+      {
+        title: "Creative Graphic Design",
+        category: "Design",
+        level: "Advanced",
+        img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80",
+        instructor: "Alex Garcia",
+        duration: "9h",
+        desc: "Take your graphic design skills to the next level! Explore advanced design principles, Adobe tools, and creative workflows.",
+        link: "course-detail.html"
+      }
+    ];
+
+    // Rendering function
+    function renderCourses() {
+      const cat = document.getElementById('categoryFilter').value;
+      const lvl = document.getElementById('levelFilter').value;
+      const search = document.getElementById('searchInput').value.trim().toLowerCase();
+
+      let filtered = courses.filter(course => {
+        let catMatch = (cat === "All" || course.category === cat);
+        let lvlMatch = (lvl === "All" || course.level === lvl);
+        let searchMatch =
+          course.title.toLowerCase().includes(search) ||
+          course.instructor.toLowerCase().includes(search) ||
+          course.desc.toLowerCase().includes(search) ||
+          course.category.toLowerCase().includes(search) ||
+          course.level.toLowerCase().includes(search);
+        return catMatch && lvlMatch && searchMatch;
+      });
+
+      const container = document.getElementById('coursesContainer');
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="col-12"><div class="alert alert-warning text-center">No courses found.</div></div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(course => `
+        <div class="col-md-4">
+          <div class="card h-100 course-card">
+            <img class="course-image" src="${course.img}" alt="${course.title}">
+            <div class="card-body">
+              <h5 class="card-title">${course.title}</h5>
+              <div class="course-meta"><i class="fa-solid fa-layer-group"></i> Level: ${course.level} &nbsp; <i class="fa-solid fa-clock"></i> ${course.duration}</div>
+              <div class="course-instructor"><i class="fa-solid fa-user-graduate"></i> ${course.instructor}</div>
+              <p class="card-text course-desc">${course.desc}</p>
+              <a href="${course.link}" class="btn btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Event listeners for filters
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('categoryFilter').addEventListener('change', renderCourses);
+      document.getElementById('levelFilter').addEventListener('change', renderCourses);
+      document.getElementById('searchInput').addEventListener('input', renderCourses);
+      renderCourses();
+    });
+  </script>
 </body>
 </html>
